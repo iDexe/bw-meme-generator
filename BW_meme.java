@@ -34,13 +34,17 @@ public class BW_meme {
       
       BufferedImage background = null;
       try {
-        background = ImageIO.read(new File("hintergrund r.png"));
-      } catch (IOException e) {}
+        background = ImageIO.read(new File("hintergrund.png"));
+      } catch (IOException e) {
+      System.out.println("Hintergrund Datei nicht gefunden! 'hintergrund.png'");
+      }
 
       BufferedImage bwlogo = null;
       try {
-        bwlogo = ImageIO.read(new File("BW logo.png"));
-      } catch (IOException e) {}
+        bwlogo = ImageIO.read(new File("logo.png"));
+      } catch (IOException e) {
+      System.out.println("Logo Datei konnte nicht gefunden werden! 'logo.png'");
+      }
 
       ig2.drawImage(background, width/2, 0, null);
 
@@ -118,6 +122,9 @@ public class BW_meme {
       //create Fonts
       Font[] fonts = new Font[messageIn.length];
       for (int i = 0; i < messageIn.length; i++) {
+      //+++++++++
+      //Font Type
+      //+++++++++
       	fonts[i] = Font.decode("Arial Narrow-Bold");
       }
       Rectangle2D[] bounds = new Rectangle2D[messageIn.length];
